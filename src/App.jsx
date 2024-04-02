@@ -1,10 +1,14 @@
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import CardQuestion from './components/CardQuestion'
+import Compteur from './components/Compteur'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
 
   const questions = [{
     numéro : 1, 
@@ -13,7 +17,8 @@ function App() {
     b : "B. D'Aïcha",
     c : "C. Des geishas",
     d : "D. D'achat",  /* bonne réponse*/
-    prix : ""
+    prix : "",
+    correctAnswer:"D. D'achat"
   },
 
   {
@@ -23,7 +28,8 @@ function App() {
     b : "B. Lapineau",
     c : "C. Lapereau",  /*bonne réponse*/ 
     d : "D. Lapineau", 
-    prix : ""
+    prix : "",
+    correctAnswer : "C. Lapereau"
   },
   {
     numéro : 3, 
@@ -31,18 +37,19 @@ function App() {
     a : "A. La Chine",
     b : "B. La Tanzanie",
     c : "C. Le Brésil",
-    d: "D. L'inde",
-    prix : ""
+    d: "D. L'Inde", /*bonne réponse*/
+    prix : "",
+    correctAnswer :"D. L'Inde"
   },
   {
     numéro : 4, 
     intitulé : "Laquelle de ces chansons n'est pas interprétée par Madonna ?", 
-    a : "A. Vogue",
+    a : "A. Purple Rain",
     b : "B. True Blue",
     c : "C. Holiday",
-    d : "D. Purple Rain", /*bonne réponse*/ 
-    prix : ""
-
+    d : "D. Vogue", /*bonne réponse*/ 
+    prix : "",
+    correctAnswer : "A. Purple Rain"
   },
 
   {
@@ -52,7 +59,8 @@ function App() {
     b : "B. Christian Lacroix", /*bonne réponse */ 
     c : "C. Karl Lagerfield",
     d : "D. Jean-Paul Gaultier",
-    prix : ""
+    prix : "",
+    correctAnswer: "B. Christian Lacroix"
 
   },
   {
@@ -62,16 +70,33 @@ function App() {
     b : "B. De la boue",
     c : "C. Des escaliers", /*bonne réponse*/ 
     d: "D. De l'encre",
-    prix : ""
+    prix : "",
+    correctAnswer: "C. Des escaliers"
 
   }
 ]
+const [questionIndex, setQuestionIndex] = useState(0)
+const passageQuestion = (index) => setQuestionIndex(index)
+console.log(setQuestionIndex)
+
+const next = () => {setQuestionIndex((prevIndex) => (prevIndex + 1));
+};
+const [active, setActive] = useState(false)
+
 
   return (
     <>
-     
-    </>
+   <h1 className="titreSite">Qui veut gagner ? </h1>
+   <CardQuestion question={questions[questionIndex]} questions={questions} passageQuestion={passageQuestion} next={next} active={active} setActive={setActive}>
+
+   </CardQuestion>
+   <button onClick={() => {next();{setActive(!active)}}} disabled={questionIndex >= questions.length -1 ? "true" : "" }>Suivant</button>
+   <Compteur></Compteur>
+   
+   </>
+    
   )
 }
+
 
 export default App
