@@ -1,0 +1,54 @@
+*{
+    margin:0;
+  }
+  
+  header{
+  width:100%;
+  height:5em;
+  background-color: black;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  font-size:30px;
+  }
+  h1 {
+    text-align: center;
+    margin-top: 2em;
+  }
+  .block_reponse {
+    margin-top:2em ;
+    width:100%;
+    height:20em;
+   
+  }
+  .ul {
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+  }
+  li{
+    width:100%;
+    height:25%;
+    margin-top:2em;
+  }
+  .button {
+    width:50%;
+    height:100%;
+    text-align: center;
+    background-color: white;
+    margin-left: 25%;
+   
+  }
+  #valider{
+    width:10%;
+    margin-left:45%;
+    margin-top:6em;
+  }
+
+ 
