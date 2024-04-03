@@ -11,7 +11,7 @@ function App() {
 
   const questions = [{
     numéro : 1, 
-    intitulé : "Pendant leurs cours, les professeurs d’économie parlent souvent du “pouvoir...", 
+    intitulé : "Q1. Pendant leurs cours, les professeurs d’économie parlent souvent du “pouvoir...", 
     a : "A. Des chats",
     b : "B. D'Aïcha",
     c : "C. Des geishas",
@@ -22,8 +22,8 @@ function App() {
 
   {
     numéro : 2, 
-    intitulé : " Quel est le petit du lapin ?", 
-    a : "A. Lapereau",
+    intitulé : "Q2. Quel est le petit du lapin ?", 
+    a : "A. Lapinou",
     b : "B. Lapineau",
     c : "C. Lapereau",  /*bonne réponse*/ 
     d : "D. Lapineau", 
@@ -32,7 +32,7 @@ function App() {
   },
   {
     numéro : 3, 
-    intitulé : "Quel est le premier producteur mondial de bananes ?", 
+    intitulé : "Q3. Quel est le premier producteur mondial de bananes ?", 
     a : "A. La Chine",
     b : "B. La Tanzanie",
     c : "C. Le Brésil",
@@ -42,7 +42,7 @@ function App() {
   },
   {
     numéro : 4, 
-    intitulé : "Laquelle de ces chansons n'est pas interprétée par Madonna ?", 
+    intitulé : "Q4. Laquelle de ces chansons n'est pas interprétée par Madonna ?", 
     a : "A. Purple Rain",
     b : "B. True Blue",
     c : "C. Holiday",
@@ -53,7 +53,7 @@ function App() {
 
   {
     numéro : 5, 
-    intitulé : "Quel célèbre couturier a dessiné la couverture du petit Larousse ?", 
+    intitulé : "Q5. Quel célèbre couturier a dessiné la couverture du petit Larousse ?", 
     a : "A. Yves Saint Laurent",
     b : "B. Christian Lacroix", /*bonne réponse */ 
     c : "C. Karl Lagerfield",
@@ -64,11 +64,11 @@ function App() {
   },
   {
     numéro : 6, 
-    intitulé : "Qu'est-ce que la climacophobie ? La peur incontrôlable ", 
+    intitulé : "Q6. Qu'est-ce que la climacophobie ? La peur incontrôlable ... ", 
     a : "A. Des fôrets",
     b : "B. De la boue",
     c : "C. Des escaliers", /*bonne réponse*/ 
-    d: "D. De l'encre",
+    d : "D. De l'encre",
     prix : "",
     correctAnswer: "C. Des escaliers"
 
@@ -82,16 +82,32 @@ const next = () => {setQuestionIndex((prevIndex) => (prevIndex + 1));
 };
 const [active, setActive] = useState(false)
 
+const [score, setScore] = useState(0);
+
 
   return (
     <>
-   <h1 className="titreSite">Qui veut gagner ? </h1>
+    
+   <h1>Qui veut gagner ... des trucs ? </h1>
+   <div className='sectionssite'>
+   <section className='quizz'>
    <CardQuestion question={questions[questionIndex]} questions={questions} passageQuestion={passageQuestion} next={next} active={active} setActive={setActive}>
 
    </CardQuestion>
-   <button onClick={() => {next();{setActive(!active)}}} disabled={questionIndex >= questions.length -1 ? "true" : "" }>Suivant</button>
-   <Compteur></Compteur>
+   <button className="boutonSuivant"onClick={() => {next();{setActive(!active)}}} disabled={questionIndex >= questions.length -1 ? "true" : "" }>Suivant</button>
+   </section>
+
    
+   <section className='score'>
+ 
+   <figure className='scoring'>
+   <h2>Votre score    </h2>
+   <div className="nombreScore"> <Compteur></Compteur> </div>
+   <h3 className='bravo'> Félicitations ! <br/> Vous avez gagné une ✨ div ✨ </h3>
+  </figure></section>
+
+
+   </div>
    </>
     
   )

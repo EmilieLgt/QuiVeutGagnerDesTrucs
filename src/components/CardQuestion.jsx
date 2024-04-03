@@ -1,11 +1,11 @@
  import { useState } from 'react'
 
-function CardQuestion ({question, passageQuestion, questions, questionIndex,next , active, setActive}) {
+function CardQuestion ({question, passageQuestion, questions, questionIndex,next , active, setActive, onAnswerClick}) {
     
 
-const defaultColor = "rgb(4, 8, 117)";
+const defaultColor = "#6D0FF2";
 const trueColor= "rgb(0, 255, 0)";
-const fauxColor= "rgb(240, 9, 8)";
+const fauxColor= "rgb(120, 10, 8)";
 const bonnereponse = question.bonnereponse
 
 
@@ -24,11 +24,12 @@ return (
 <figure><h2>{question.intitulé}</h2>
  <h4>Choisissez une réponse : </h4>
 
+<div className='boutonsReponses'>
 <button style={{backgroundColor: active  === true &&  question.a===question.correctAnswer ? trueColor : defaultColor}} onClick={() =>{setActive(!active)}}>{question.a} </button>
 <button style={{backgroundColor: active  === true &&  question.b===question.correctAnswer ? trueColor : defaultColor}} onClick={() =>{setActive(!active)}}>{question.b}</button>
 <button style={{backgroundColor: active  === true &&  question.c===question.correctAnswer ? trueColor : defaultColor}} onClick={() =>{setActive(!active)}}>{question.c}</button>
 <button style={{backgroundColor: active  === true &&  question.d===question.correctAnswer ? trueColor : defaultColor}} onClick={() =>{setActive(!active)}}>{question.d}</button> 
-
+</div>
 
 </figure>
 
