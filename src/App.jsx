@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -40,9 +41,10 @@ function App() {
     prix : "",
     br :"D. L'Inde"
   },
+ 
   {
     numéro : 4, 
-    intitulé : "Q4. Laquelle de ces chansons n'est pas interprétée par Madonna ?", 
+    intitulé : "Laquelle de ces chansons n'est pas interprétée par Madonna ?", 
     a : "A. Purple Rain",
     b : "B. True Blue",
     c : "C. Holiday",
@@ -68,15 +70,14 @@ function App() {
     a : "A. Des fôrets",
     b : "B. De la boue",
     c : "C. Des escaliers", /*bonne réponse*/ 
-    d : "D. De l'encre",
+d : "D. De l'encre",
     prix : "",
-    br: "C. Des escaliers"
-
-  }
+    br: "C. Des escaliers" }
 ]
 const [questionIndex, setQuestionIndex] = useState(0)
 const passageQuestion = (index) => setQuestionIndex(index)
 console.log(setQuestionIndex)
+
 
 const suivant = () => {setQuestionIndex((prevIndex) => (prevIndex + 1));           
 };
@@ -95,7 +96,6 @@ const [active, setActive] = useState(false)
 
   
     
-
 
 
   return (
