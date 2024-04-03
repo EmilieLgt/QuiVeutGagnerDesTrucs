@@ -1,42 +1,115 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0px;
+  width:100vw;
+  height: 100vh;
+  padding: 0px;
+  line-height: 1.5;
+  font-family: "Gabarito";
+  color-scheme: light dark;
+  background-color:#dcd7f4;
+  font-synthesis: none;
+}
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color:#7215f5;
+  text-shadow: 4px 2px  #F2B807;
+  margin:0px;
+  padding-top:1em;
+  padding-left:2em;
+  padding-bottom:0.1em;
+  margin-bottom:1em;
+  font-family: "Shrikhand";
+
+
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.50s;
+  background-color: #6D0FF2;
+  font-family: "Gabarito";
+}
+button:hover {
+  border-color: #ff6464;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto rgb(202, 10, 10)
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+
+section {background-color: #b46ff9;
+border-radius: 20px;
+border: solid 8px rgb(243, 221, 156);
+box-shadow: 10px 10px 0px 0px rgb(242, 184, 7)}
+
+.quizz{width: 92vw;
+  margin-left:5vw;}
+.score {width:42vw;
+  margin-left:3vw;
+height: 50vh;}
+
+.sectionssite {display:flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items: center;
+width:80vw;
+padding:0px}
+
+.boutonsReponses {display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap :1em;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
+.boutonsReponses > button {font-size: 1.5em;
+width:18vw;
+height:max-content;
+font-family:"Gabarito"}
+
+
+h2 {background-color: #6D0FF2;
+  font-size: 2em;
+padding: 1em
+
 }
 
-.read-the-docs {
-  color: #888;
-}
+h3{text-align: center;
+font-size: 1.5em}
+
+.boutonSuivant {margin-bottom: 1em;
+  background-color: #9260d7;
+  margin-top:1em;
+  margin-left:21vw;
+width:fit-content}
+
+.bravo {padding-bottom: 1em;
+color:#F2B807}
+
+.nombreScore {font-size: 2em; 
+  background-color: #F2B807;
+width:fit-content;
+border-radius: 10px;
+padding:0.5em}
+
+.scoring {display:flex;
+flex-direction:column;
+justify-content: center;
+align-items: center;
+margin-top:0px;}
