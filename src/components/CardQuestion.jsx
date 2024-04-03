@@ -1,13 +1,11 @@
  import { useState } from 'react'
 
-function CardQuestion ({question, fct, passageQuestion, questions, questionIndex , active, setActive, onAnswerClick}) {
+function CardQuestion ({question, active, reponseQuizz,}) {
     
 
 const defaultColor = "#6D0FF2";
 const trueColor= "rgb(0, 255, 0)";
 const fauxColor= "rgb(120, 10, 8)";
-const bonnereponse = question.bonnereponse
-
 
 return (
 
@@ -17,14 +15,17 @@ return (
 
 <div className='boutonsReponses'>
 
-<button style={{backgroundColor: active  === true &&  question.a===question.br ? trueColor : defaultColor}} 
-onClick={() =>{fct (); {setActive(!active)}}}>{question.a} </button>
+<button id="b_1" style={{backgroundColor: active  === true &&  question.a===question.br ? trueColor : defaultColor}} 
+  onClick={() => {reponseQuizz(question.a)}}> {question.a}</button>
 
-<button style={{backgroundColor: active  === true &&  question.b===question.br ? trueColor : defaultColor}} onClick={() =>{setActive(!active); fct ()}}>{question.b}</button>
+<button id="b_2" style={{backgroundColor: active  === true &&  question.b===question.br ? trueColor : defaultColor}} 
+onClick={() => {reponseQuizz(question.b)}}> {question.b}</button>
 
-<button style={{backgroundColor: active  === true &&  question.c===question.br ? trueColor : defaultColor}} onClick={() =>{ fct (); setActive(!active); fct ()}}>{question.c}</button>
+<button id="b_3" style={{backgroundColor: active  === true &&  question.c===question.br ? trueColor : defaultColor}}
+ onClick={() =>{reponseQuizz(question.c)}}>{question.c}</button>
 
-<button style={{backgroundColor: active  === true &&  question.d===question.br ? trueColor : defaultColor}} onClick={() =>{fct (); setActive(!active); fct ()}}>{question.d}</button> 
+<button id="b_4" style={{backgroundColor: active  === true &&  question.d===question.br ? trueColor : defaultColor}}
+ onClick={() =>{reponseQuizz(question.d)}}>{question.d}</button> 
 </div>
 
 </figure>

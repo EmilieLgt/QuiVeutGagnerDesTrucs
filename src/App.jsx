@@ -1,11 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import CardQuestion from './components/CardQuestion'
-import Compteur from './components/Compteur'
-
-
 
 function App() {
 
@@ -17,7 +12,7 @@ function App() {
     c : "C. Des geishas",
     d : "D. D'achat",  /* bonne réponse*/
     prix : "",
-    br:"D. D'achat"
+    br : "D. D'achat"
   },
 
   {
@@ -26,9 +21,9 @@ function App() {
     a : "A. Lapinou",
     b : "B. Lapineau",
     c : "C. Lapereau",  /*bonne réponse*/ 
-    d : "D. Lapineau", 
+    d : "D. Laperon", 
     prix : "",
-    br : "C. Lapereau"
+    br : "C. Lapereau",
   },
   {
     numéro : 3, 
@@ -38,7 +33,7 @@ function App() {
     c : "C. Le Brésil",
     d: "D. L'Inde", /*bonne réponse*/
     prix : "",
-    br :"D. L'Inde"
+    br : "D. L'Inde",
   },
   {
     numéro : 4, 
@@ -70,31 +65,36 @@ function App() {
     c : "C. Des escaliers", /*bonne réponse*/ 
     d : "D. De l'encre",
     prix : "",
-    br: "C. Des escaliers"
+    br : "C. Des escaliers"
 
   }
 ]
-const [questionIndex, setQuestionIndex] = useState(0)
-const passageQuestion = (index) => setQuestionIndex(index)
-console.log(setQuestionIndex)
 
-const suivant = () => {setQuestionIndex((prevIndex) => (prevIndex + 1));           
+/* Pour faire défiler les questions avec le boutons suivant */ 
+const [questionIndex, setQuestionIndex] = useState(0)
+const suivant = () => {setQuestionIndex((prevIndex) => (prevIndex + 1)) ; setActive(!active);           
 };
 
+/*Pour changer la couleur et indiquer à l'utilistateur la bonne réponse */ 
 const [active, setActive] = useState(false)
 
 
-    const [countCalcul1, setCalcul1] = useState(0);
-    const [countCalcul2, setCalcul2] = useState(0);
-    const fct = (event) => {
-        let selection = event.target.innerHTML.split('')[0];
-        const id = event.target.id.split('_')[1];
-        selection == questions[questionIndex].br ? setCalcul1(countCalcul1 + 1) : setCalcul2(countCalcul2 + 0);
-    }
+/* Pour calculer le score */
+const [score, setScore] = useState(0);
+
+const fct = (selectedAnswer) => {
+  if (selectedAnswer == questions[questionIndex].br) {
+    setScore(score + 1);
+  }
+};
 
 
-  
-    
+/* Combinaison des deux fonctions */ 
+const reponseQuizz = (selectedAnswer) => {
+  setActive(!active); // Active la couleur du bouton
+  fct(selectedAnswer); // Vérifie la réponse et met à jour le score
+};
+
 
 
 
@@ -104,10 +104,13 @@ const [active, setActive] = useState(false)
    <h1>Qui veut gagner ... des trucs ? </h1>
    <div className='sectionssite'>
    <section className='quizz'>
-   <CardQuestion question={questions[questionIndex]} questions={questions} fct={fct} passageQuestion={passageQuestion} active={active} setActive={setActive}>
+   <CardQuestion question={questions[questionIndex]} questions={questions} reponseQuizz={reponseQuizz}
+            active={active}
+            setActive={setActive} >
 
    </CardQuestion>
-   <button className="boutonSuivant"onClick={() => {suivant();{setActive(!active)}}} disabled={questionIndex >= questions.length -1 ? "true" : "" }>Suivant</button>
+   <button className="boutonSuivant" onClick={() => {suivant()}}
+            disabled={questionIndex >= questions.length - 1 ? "true" : ""}>Suivant</button>
    </section>
 
    
@@ -115,7 +118,7 @@ const [active, setActive] = useState(false)
  
    <figure className='scoring'>
    <h2>Votre score    </h2>
-   <div className="nombreScore"> {countCalcul1}</div>
+   <div className="nombreScore"> {score}</div>
    <h3 className='bravo'> Félicitations ! <br/> Vous avez gagné une ✨ div ✨ </h3>
   </figure></section>
 
