@@ -29,7 +29,7 @@ function App() {
     },
     {
       numéro: 3,
-      intitulé: "Q3. Quel est le premier producteur mondial de bananes ?",
+      intitulé: "Q3. Quel est le premier producteur mondial de shows ?",
       a: "A. La Chine",
       b: "B. La Tanzanie",
       c: "C. Le Brésil",
@@ -102,7 +102,8 @@ function App() {
    
   return (
     <>
-      <h1>Qui veut gagner ... des trucs ? </h1>
+   
+      <h1>Qui veut gagner ...  des trucs  ? </h1>
 
       <div className="sectionssite">
         <section className="quizz">
